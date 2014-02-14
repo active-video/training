@@ -1,0 +1,102 @@
+var KEYS = {
+    //NAME --> CODE
+    'ZERO'         : 48,
+    'ONE'          : 49,
+    'TWO'          : 50,
+    'THREE'        : 51,
+    'FOUR'         : 52,
+    'FIVE'         : 53,
+    'SIX'          : 54,
+    'SEVEN'        : 55,
+    'EIGHT'        : 56,
+    'NINE'         : 57,
+
+
+    'RED'          : 403,
+    'GREEN'        : 404,
+    'YELLOW'       : 405,
+    'BLUE'         : 406,
+
+    'LEFT'         : 37,
+    'UP'           : 38,
+    'RIGHT'        : 39,
+    'DOWN'         : 40,
+
+    'ENTER'        : 13,
+    'OK'           : 13,
+    'EXIT'         : 1158,
+    'LAST'         : 8,
+    'BACK'         : 35,//http bcd
+
+    'PAGE_UP'      : 33,
+    'PAGE_DOWN'    : 34,
+    'PLAY'         : 415,
+    'PAUSE'        : 19,
+    'REWIND'       : 412,
+    'FAST_FORWARD' : 417,
+    'STOP'         : 413,
+    'BUTTON_A'     : 4111,
+    'BUTTON_B'     : 4112,
+    'BUTTON_C'     : 4113,
+    'BUTTON_D'     : 4114,
+    'INFO'         : 457,
+    'RECORD'       : 416,
+    'FAV'          : 171,
+    'ON_DEMAND'    : 1805,
+    'LIVE'         : 1157,
+    'HELP'         : 156,
+    'MENU'         : 462,
+    'DVR'          : 1181,
+    'HOME'         : 36,
+    'GUIDE'        : 458,
+    'SETTINGS'      : 4109,
+
+    //CODE --> NAME
+    '49'          : "one",
+    '50'          : "two",
+    '51'          : "three",
+    '52'          : "four",
+    '53'          : "five",
+    '54'          : "six",
+    '55'          : "seven",
+    '56'          : "eight",
+    '57'          : "nine",
+    '48'          : "zero",
+
+    '403'         : 'ButtonA',
+    '405'         : 'ButtonB',
+    '406'         : 'ButtonC',
+    '407'         : 'ButtonD',
+
+    '37'          : "left",
+    '38'          : "up",
+    '39'          : "right",
+    '40'          : "down",
+
+    '13'          : "enter",
+    '1158'        : "exit",
+    '8'           : 'last',
+
+    '33'          : 'PageUp', //moto
+    '34'          : 'PageDown', //moto
+    '415'         : 'play',
+    '19'          : 'pause',
+    '412'         : 'rewind',
+    '417'         : 'fastforward',
+    '413'         : 'stop',
+
+    '4111'        : 'ButtonA',
+    '4112'        : 'ButtonB',
+    '4113'        : 'ButtonC',
+    '4114'        : 'ButtonD',
+    '457'         : 'Info',
+    '416'         : 'Record',
+    '171'         : 'Fav',
+    '1805'        : 'OnDemand',
+    '156'         : 'Help',
+    '462'         : 'Menu',
+    '1181'        : 'DVR',
+    '36'          : 'Home',
+    '458'         : 'Guide',
+    '4109'        : 'Settings'
+};

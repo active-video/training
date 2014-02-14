@@ -1,0 +1,111 @@
+<html>
+
+
+
+<head>
+
+    <style>
+        button{
+            color:white;
+            background-color:black;
+            display:inline-block;
+            width:40%;
+            height:50px;
+            margin:auto auto;
+            text-align: center;
+            outline-width:0;
+        }
+        button:focus{
+            color:black;
+            background-color:yellow;
+        }
+    </style>
+
+    <script src="../../resources/keycodes.js"></script>
+    <script>
+        //keep a global array of all buttons to avoid always querying DOM
+        var buttons = null;
+
+        //KEY HANDLER
+        var onKeyDown = function(evt){
+
+            if(!buttons){
+                //get the buttons as an array
+                buttons = Array.prototype.slice.call(    document.querySelectorAll('button')    );
+            }
+
+            //get the current button then we'll calculate the next button to focus
+            var index = buttons.indexOf(evt.target);
+            var next = false;
+
+            switch(evt.keyCode){
+                case KEYS.DOWN:
+                    var next = Math.min(buttons.length-1, index+2);
+                    break;
+                case KEYS.UP:
+                    var next = Math.max(0, index-2);
+                    break;
+                case KEYS.RIGHT:
+                    var next = Math.min(buttons.length-1, index+1);
+                    break;
+                case KEYS.LEFT:
+                    var next = Math.max(0, index-1);
+                    break;
+            }
+
+            if(next !== false) buttons[next].focus();
+
+        }
+
+        //EVENT LISTENERS
+        window.addEventListener('keydown', onKeyDown);
+        window.addEventListener('load', function(){
+            document.querySelector('button').focus();
+        })
+    </script>
+
+
+</head>
+
+
+
+
+<body>
+    <h1>Button Navigation</h1>
+    <p>
+        The purpose of this exercise is to demonstrate how to
+        <ol>
+            <li>Set initial focus on page load</li>
+            <li>provide a sample of how to listen for Up/Down/Left/Right using a "keyCode"</li>
+            <li>move focus to the nearest button in the direction pressed.</li>
+        <li>General Structure:
+            <pre>
+                var onKeyDown = function(evt){
+                    switch(evt.keyCode){
+                        case KEYS.DOWN:     /*focus DOWN*/ break;
+                        case KEYS.UP:       /*focus UP*/ break;
+                        case KEYS.RIGHT:    /*focus RIGHT*/ break;
+                        case KEYS.LEFT:     /*focus LEFT*/ break;
+                    }
+                }
+            </pre>
+        </li>
+        </ol>
+        <em>Note: we use a simple navigation scheme which wraps focus between rows even when using Left/Right keys.</em>
+    </p>
+
+    <button>I am button 1</button>
+    <button>I am button 2</button>
+    <button>I am button 3</button>
+    <button>I am button 4</button>
+    <button>I am button 5</button>
+    <button>I am button 6</button>
+    <button>I am button 7</button>
+    <button>I am button 8</button>
+
+
+</body>
+
+
+
+</html>
