@@ -26,3 +26,10 @@ var onKeyDown = function(evt    ){
 }
 
 window.addEventListener('keydown', onKeyDown);
+
+window.addEventListener('load', function(){
+    var lis = document.querySelectorAll('li:not(.p)');
+    for(var i=0; i<lis.length;i++){
+        lis[i].style.backgroundImage = 'url(../../resources/images/'+(i%36)+'.jpg)';
+    }
+})
