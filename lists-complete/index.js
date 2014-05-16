@@ -1,3 +1,5 @@
+"use strict";
+
 var uls = document.querySelectorAll('.carousel');
 
 //HOW MANY LIs FIT ON SCREEN?
@@ -34,8 +36,9 @@ for(var listIndex=0; listIndex<uls.length; listIndex++){
 }
 
 
-var onKeyDown = function(evt){
+var onKeyDown = function(evt, swipeEvent){
     console.log("keydown " + evt.keyIdentifier);
+
     switch(evt.keyIdentifier){
         case "Up":
             var list = document.querySelector('section>ul');
@@ -72,4 +75,14 @@ var onKeyDown = function(evt){
 }
 
 
-window.addEventListener('keydown', onKeyDown)
+window.addEventListener('keydown', onKeyDown);
+
+window.addEventListener('load', function(){
+    //setup swipe events
+    var section = document.querySelector('section');
+    Hammer(section).on('swipeleft',onKeyDown.bind(window, {keyIdentifier:"Left"}));
+    Hammer(section).on('swiperight',onKeyDown.bind(window, {keyIdentifier:"Right"}));
+    Hammer(section).on('swipeup',onKeyDown.bind(window, {keyIdentifier:"Up"}));
+    Hammer(section).on('swipedown',onKeyDown.bind(window, {keyIdentifier:"Down"}));
+
+})
