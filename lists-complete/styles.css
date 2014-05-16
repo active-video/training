@@ -1,0 +1,115 @@
+body{
+    overflow:hidden;
+    margin:0;
+    padding:20px;
+    background:#222;
+    color:#FFF;
+}
+body,section,ul,li,h1{
+    box-sizing: border-box;/*Include padding and border in calculations*/
+}
+li{
+    list-style:none;
+    position:absolute;
+    left:0;
+    top:0;
+    overflow:hidden;
+    -webkit-transform:translateZ(0);
+    -webkit-transition:-webkit-transform 500ms cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+section {
+    width:1280px;
+    height:720px;
+    overflow:hidden;
+    position:relative;
+}
+section ul>li{
+    width:1280px;
+    height:350px;
+    /* To reduce a paint up front, it would be desireable to hide the lists until we are done cloning children
+    display:none;
+    */
+}
+section>ul>li:nth-child(1){  -webkit-transform:translate3d(0,-400px,0);}
+section>ul>li:nth-child(2){  -webkit-transform:translate3d(0,100px,0);}
+section>ul>li:nth-child(3){  -webkit-transform:translate3d(0,450px,0);}
+section>ul>li:nth-child(n+4){  -webkit-transform:translate3d(0,800px,0);}
+section>ul>li:nth-child(n+5){  display:none;}
+
+section ul>li>h1{
+    margin:0;
+    padding:0;
+    font-size:20px;
+    width:1000px;
+    padding-left:36px;
+}
+.carousel li img,.carousel li{
+
+}
+.carousel li{
+    width:256px;
+    height:320px;
+    top:30px;
+    display:inline-block;
+    text-align:center;
+}
+.carousel li>img{
+    width:185px;
+    height:274px;
+    display:block;
+    margin:auto auto;
+    margin-bottom:2px;
+}
+
+/*
+    We will use fixed focus on the 2nd item in the list, so position a box around/over
+    that position
+
+    1 [2] 3 4 5
+    scrolling left then always focus stays on 1st spot from left
+    2 [3] 4 5 1
+
+*/
+section>ul>li:nth-child(2) .carousel li:nth-child(2):before{
+    content:"";
+    z-index:2;
+    position:absolute;
+    left:33px;
+    top:0;
+    width:190px;
+    height:300px;
+    border:3px solid white;
+    border-bottom-width:8px;
+    box-sizing: border-box;
+}
+
+/*
+Set webkit-transform position based on the order in the list,
+note that the 2nd one is enlarged in the 1st visible row to indicate focus
+*/
+.carousel > li:nth-child(1){  -webkit-transform:translate3d(-256px,0,0) scale(0.8);}
+.carousel > li:nth-child(2){  -webkit-transform:translate3d(0px,0,0) scale(0.8);}
+section>ul>li:nth-child(2) .carousel li:nth-child(2){  -webkit-transform:translate3d(0,0,0) scale(1);}
+.carousel > li:nth-child(3){  -webkit-transform:translate3d(256px,0,0) scale(0.8);}
+.carousel > li:nth-child(4){  -webkit-transform:translate3d(512px,0,0) scale(0.8);}
+.carousel > li:nth-child(5){  -webkit-transform:translate3d(768px,0,0) scale(0.8);}
+.carousel > li:nth-child(6){  -webkit-transform:translate3d(1024px,0,0) scale(0.8);}
+.carousel > li:nth-child(n+7){  -webkit-transform:translate3d(1280px,0,0) scale(0.8);}
+.carousel > li:nth-child(n+8),
+.carousel.items2 > li:nth-child(n+5),
+.carousel.items3 > li:nth-child(n+6),
+.carousel.items4 > li:nth-child(n+7)
+{display:none;}
+
+
+/*
+CLIP the item directly before and after those that are supposed to be visible, that
+way when we move things around the last items animate rather than just JUMP into place
+*/
+.carousel.items2 > li:nth-child(4),
+.carousel.items3 > li:nth-child(5),
+.carousel.items4 > li:nth-child(6),
+.carousel.items5 > li:nth-child(7),
+.carousel.items6 > li:nth-child(8){
+    clip:rect(0px, 0px, 256px, 320px);
+}

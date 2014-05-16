@@ -1,0 +1,104 @@
+<html>
+
+
+<head>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+
+<header>
+    This illustrates lists and the edge cases related to them where animations should still be smooth even when
+    they do not contain a sufficient number of items to run out of their parent container viewport.<br />
+    Let's define a list that animates in a carousel manner to be made up of M items visible at a time. So in this case, M=5. So if
+    any list has at least 5+2=7 items, then we are good.
+</header>
+
+
+<section>
+    <ul>
+        <li>
+            <h1>6 Items: Edge case, same as 5, need to clone to get that extra at end</h1>
+            <ul class="carousel">
+                <li><img src="../resources/images/22.jpg" />Movie 1f</li>
+                <li><img src="../resources/images/23.jpg" />Movie 2f</li>
+                <li><img src="../resources/images/24.jpg" />Movie 3f</li>
+                <li><img src="../resources/images/25.jpg" />Movie 4f</li>
+                <li><img src="../resources/images/26.jpg" />Movie 5f</li>
+                <li><img src="../resources/images/27.jpg" />Movie 6f</li>
+            </ul>
+        </li>
+
+        <li>
+            <h1>Ideal Case - 5 items plus 1 on either end (7 total)</h1>
+            <ul class="carousel">
+                <li><img src="../resources/images/0.jpg" />Movie 1</li>
+                <li><img src="../resources/images/1.jpg" />Movie 2</li>
+                <li><img src="../resources/images/2.jpg" />Movie 3</li>
+                <li><img src="../resources/images/3.jpg" />Movie 4</li>
+                <li><img src="../resources/images/4.jpg" />Movie 5</li>
+                <li><img src="../resources/images/5.jpg" />Movie 6</li>
+                <li><img src="../resources/images/6.jpg" />Movie 7</li>
+            </ul>
+        </li>
+
+        <li>
+            <h1>1 Item: Worst case - just clone 1 copy and put at beginning so that we appear on screen</h1>
+            <ul class="carousel">
+                <li><img src="../resources/images/7.jpg" />Movie 1a</li>
+            </ul>
+        </li>
+
+        <li>
+            <h1>2 Items: Edge case, need to clone nodes to make animation smooth</h1>
+            <ul class="carousel">
+                <li><img src="../resources/images/8.jpg" />Movie 1b</li>
+                <li><img src="../resources/images/9.jpg" />Movie 2b</li>
+            </ul>
+        </li>
+
+        <li>
+            <h1>3 Items: Edge case, need to clone nodes to make animation smooth</h1>
+            <ul class="carousel">
+                <li><img src="../resources/images/10.jpg" />Movie 1c</li>
+                <li><img src="../resources/images/11.jpg" />Movie 2c</li>
+                <li><img src="../resources/images/12.jpg" />Movie 3c</li>
+            </ul>
+        </li>
+
+        <li>
+            <h1>4 Items: Edge case, need to clone nodes to make animation smooth</h1>
+            <ul class="carousel">
+                <li><img src="../resources/images/13.jpg" />Movie 1d</li>
+                <li><img src="../resources/images/14.jpg" />Movie 2d</li>
+                <li><img src="../resources/images/15.jpg" />Movie 3d</li>
+                <li><img src="../resources/images/16.jpg" />Movie 4d</li>
+            </ul>
+        </li>
+
+        <li>
+            <h1>5 Items: Edge case, even though we fill the screen, we still need 1 extra ahead/behind, so clone list</h1>
+            <ul class="carousel">
+                <li><img src="../resources/images/17.jpg" />Movie 1e</li>
+                <li><img src="../resources/images/18.jpg" />Movie 2e</li>
+                <li><img src="../resources/images/19.jpg" />Movie 3e</li>
+                <li><img src="../resources/images/20.jpg" />Movie 4e</li>
+                <li><img src="../resources/images/21.jpg" />Movie 5e</li>
+            </ul>
+        </li>
+
+
+
+
+    </ul>
+
+
+</section>
+
+
+</body>
+
+<script src="index.js"></script>
+
+</html>
