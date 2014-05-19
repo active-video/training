@@ -1,5 +1,10 @@
 "use strict";
 
+if(location.href.indexOf('positionbased=true') != -1){
+    console.log("Using position based");
+    document.write('<link type="text/css" rel="stylesheet" href="position-based.css" />');
+}
+
 var uls = document.querySelectorAll('.carousel');
 
 //HOW MANY LIs FIT ON SCREEN?

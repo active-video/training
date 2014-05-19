@@ -1,0 +1,58 @@
+li{
+    -webkit-transform:none;
+    -webkit-transition:left 500ms cubic-bezier(0.165, 0.84, 0.44, 1),top 500ms cubic-bezier(0.165, 0.84, 0.44, 1),width 500ms cubic-bezier(0.165, 0.84, 0.44, 1),height 500ms cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+section ul>li{
+    width:1280px;
+    height:350px;
+}
+section>ul>li:nth-child(1){  -webkit-transform:none; top:-400px;}
+section>ul>li:nth-child(2){  -webkit-transform:none; top:100px;}
+section>ul>li:nth-child(3){  -webkit-transform:none; top:450px}
+section>ul>li:nth-child(n+4){  -webkit-transform:none; top:800px;}
+
+section ul>li>h1{
+    margin:0;
+    padding:0;
+    font-size:20px;
+    width:1000px;
+    padding-left:36px;
+}
+
+
+.carousel li>img{
+    width:152px;
+    height:219.2px;
+}
+
+/*
+Use LEFT and TOP instead of a webkit transform
+*/
+.carousel > li:nth-child(1){  -webkit-transform:none; left:-256px; width:152px;}
+.carousel > li:nth-child(2){  -webkit-transform:none; left:0px;}
+section>ul>li:nth-child(2) .carousel li:nth-child(2){  -webkit-transform:none; left:0px;}
+section>ul>li:nth-child(2) .carousel li:nth-child(2) img{width:190px; height:274px;}
+
+.carousel > li:nth-child(3){  -webkit-transform:none; left:256px;}
+.carousel > li:nth-child(4){  -webkit-transform:none; left:512px;}
+.carousel > li:nth-child(5){  -webkit-transform:none; left:768px;}
+.carousel > li:nth-child(6){  -webkit-transform:none; left:1024px;}
+.carousel > li:nth-child(n+7){  -webkit-transform:none; left:1280px;}
+.carousel > li:nth-child(n+8),
+.carousel.items2 > li:nth-child(n+5),
+.carousel.items3 > li:nth-child(n+6),
+.carousel.items4 > li:nth-child(n+7)
+{display:none;}
+
+
+/*
+CLIP the item directly before and after those that are supposed to be visible, that
+way when we move things around the last items animate rather than just JUMP into place
+*/
+.carousel.items2 > li:nth-child(4),
+.carousel.items3 > li:nth-child(5),
+.carousel.items4 > li:nth-child(6),
+.carousel.items5 > li:nth-child(7),
+.carousel.items6 > li:nth-child(8){
+    clip:rect(0px, 0px, 256px, 320px);
+}
