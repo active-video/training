@@ -1,7 +1,7 @@
 /**
  * Configuration
  */
-var feedUrl = "http://uvtv.libsyn.com/rss/";//Heavy Metal Videos
+var feedUrl = "rss.xml";//Heavy Metal Videos
 var maxItems = 20;
 
 /**
@@ -34,7 +34,7 @@ var showItems = function(items, xml){
 
         //IMAGE
         var img = document.createElement('img');
-        if(items[i].querySelector('image')) img.src = items[i].querySelector('image').getAttribute('href');
+        if(items[i].querySelector('[medium="image"]')) img.src = items[i].querySelector('[medium="image"]').getAttribute('url');
         li.appendChild(img);
 
         //TITLE
@@ -76,7 +76,7 @@ var onKeyDown = function(evt){
         evt.preventDefault();//don't let window scroll down
         next.focus();
     }else if(evt.keyCode == KEYS.OK){
-        var videoUrl = evt.target.getAttribute('data-video-url');
+        var videoUrl = 'test.mp4';//just use sample for now
         var title = evt.target.querySelector('title').textContent;
 
         var videoDiv = document.querySelector('div.video');
@@ -116,7 +116,7 @@ var onKeyDown = function(evt){
 // START LOADING RSS ***********************
 var onReadyStateChange = function(){
     if(this.readyState == 4){
-        if((this.status == 200 || this.status == 304) && this.responseXML){
+        if(this.responseXML){
             var xml = this.responseXML.documentElement;
             var items = xml.querySelectorAll('item');
             showItems(items, xml);
