@@ -48,14 +48,15 @@ var onKeyDown = function(evt    ){
                 mode = 'detail';
                 break;
 
-            case 37:
+            case 39:
                 var first = document.querySelector('ul.list1 li:nth-child(n+15)');
                 var last = document.querySelector('ul.list1 li:nth-child(n+21)');
 
                 ul.insertBefore(first, last);
                 evt.preventDefault();
                 break;
-            case 39:
+
+            case 37:
                 var first = document.querySelector('ul.list1 li:nth-child(n+15)');
                 var last = document.querySelector('ul.list1 li:nth-child(n+20)');
 
